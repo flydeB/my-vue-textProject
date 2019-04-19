@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let obj = new Object();
+        obj.name = 'json';
+        obj.alertName = function () {
+            alert(this.name)
+        }
+
+        // obj.alertName();
+
+        let array = [];
+        array.name = 'lili';
+        array.fn = function () {
+            console.log(this.name)
+        };
+
+        // array.fn();
+        // array.push({'many':'age'})
+        // console.log(array.sort())
+
+        //工厂模式
+
+        function car(name) {
+            let obj = new Object();
+            obj.name = name;
+            obj.consoleName = function () {
+                console.log(this.name)
+            }
+
+            return obj
+        }
+        let car1 = new car('北京烤鸭');
+        let car2 = new car('2468');
+
+        car2.consoleName();
+        car1.consoleName();
+        console.log(car1.name)
+
+        // 优先级 
+        let arr = [];
+        arr.name1 = 'xiaociao';
+        Array.prototype.name = 888;
+
+        console.log(arr.name);
+
+        function cerate(name) {
+            this.name = name;
+        }
+        cerate.prototype.create1 = function () {
+            console.log(this.name)
+        }
+
+        let p1 = new cerate('123');
+        let p2 = new cerate('234');
+        console.log(p1.create1 == p1.create1)
+
+
+
+        //封装
+        function hahahaFn(str) {
+            let arrayList = []
+            let str1 = srt.split('-');
+
+            for (let i = 0; i < str1.length; i++) {
+                let obj = {
+                    code: str1[i],
+                    name: str1[i + 1]
+                }
+                console.log(obj);
+                if (Number(obj.code) || Number(obj.code) == 0 && obj.code) {
+                    arrayList.push(obj)
+                }
+            }
+            return arrayList
+        }
+
+        //使用
+        let srt = '00-公共接入-042-汉光研发测试专用-041-汉光股份-123-嘎嘎爱-3224-今晚搞得我不吃';
+        console.log(23432424324, hahahaFn(srt));
+
+
+        function box(arrayListOption) {
+            let list = arrayListOption
+            let li = []
+            for (let i = 0; i < list.length; i++) {
+                li.push(
+                    ` <li>
+                        <span>${list[i].code}</span>
+                        <span>${list[i].name}</span>
+                    </li>`
+                )
+            }
+            return li
+        }
+
+        let zxcvb = [{ code: 2222, name: 'lisu', code: 534534, name: 'duegsd' }]
+
+        console.log(23242423, box(zxcvb))
+
+
+        ///////////////////////////////
+
+        function menuList(option) {
+            var array = option
+            var html = "";
+       
+                html = '<ul>'
+                for (var j = 0; j < array.length; j++) {
+                    html += '<li><span>' + array[j].code + '</span>' + array[j].name + '</span></li>'
+                }
+                html += '</ul>'
+            }
+            $('#menu_list').append(html);
+        
+
+        menuList()
+
+
+
+
+    </script>
+</body>
+
+</html>
